@@ -1,0 +1,42 @@
+<!--- Navbar --->
+<nav>
+  <ul class="liste-nav">
+    <li class="item-nav">
+      <img src="../assets/inLineLogo.png" alt="">
+    </li>
+    <li class="item-nav">
+      <a class="nav-link" routerLink="">
+        <i class="fa fa-home fa-fw mr-1 fa-2x"></i>
+      </a>
+    </li>
+    <li class="item-nav">
+      <a class="nav-link" routerLink="pageProduits">
+        <i class="fas fa-shopping-bag fa-2x"></i>
+      </a>
+    </li>
+    <!-- visible que quand on est pas connecté-->
+    <li class="item-nav">
+      <a class="nav-link" id="btnBoutonConnexion" routerLink="pageConnexion" *ngIf="pasConnecte">
+        <i class="fas fa-user fa-2x"></i>
+      </a>
+    </li>
+    <li class="item-nav btn-group dropstart">
+      <div class="btn-group dropstart">
+        <button id="UtilisateurConnecte" type="button" class="btn btn-secondary dropdown-toggle fa-2x"
+          data-bs-toggle="dropdown" aria-expanded="false" *ngIf="!pasConnecte">
+          {{utilisateur}} {{portefeuille}}€
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="panier">Panier</a></li>
+          <li><a class="dropdown-item" (click)="deconnectionUtilisateur()">Déconnexion</a></li>
+        </ul>
+      </div>
+
+    </li>
+
+
+  </ul>
+</nav>
+<!--# Navbar #-->
+
+<router-outlet></router-outlet>

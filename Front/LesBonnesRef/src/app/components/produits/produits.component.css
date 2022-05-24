@@ -1,0 +1,126 @@
+/************************************ Choix Catégories  **************************************************/
+.margetop {
+    padding-top: 125px;
+}
+
+.choixcategories {
+    display: flex;
+    margin: auto;
+    height: 80px;
+    width: 1450px;
+    margin-bottom: 15px;
+}
+
+.btncategorie {
+    display: flex;
+    margin: auto;
+    width: 165px;
+    height: 75px;
+    background: #30444E;
+    border-radius: 25px;
+    border: none;
+}
+
+.btncategorie:focus {
+    border: 2px solid #3ED598;
+}
+
+.imgchoixcatégories {
+    display: flex;
+    margin: auto 10px;
+}
+
+.pchoixcategories {
+    margin: auto 0;
+    font-size: 18px;
+    color: #FFF;
+}
+
+/************************************************** barre de recherche au dessus des card produit *********************************************/
+
+#rechercheProduit {
+    background-color: #1A282F;
+    text-decoration: greenyellow;
+    border: none;
+}
+
+#rechercheProduit::placeholder {
+    color: #909ba1;
+    /* couleur du placeholder */
+}
+
+#boutonVendre {
+    background-color: #3ED598;
+    border: none;
+}
+
+/*********************************************************** affichage des produits  ***********************************************************/
+.cardBorder {
+    border-radius: 25px;
+}
+
+.marginCard {
+    margin: 0 15px 15px 15px;
+}
+
+.mask-custom {
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.247);
+}
+
+#btnDetailProduit {
+    background: transparent;
+    /* transparence de l'arrière plan */
+    border: none;
+    /* transparence du contour */
+}
+
+/***************************************************** tous les panels ******************************************************************/
+
+.modal-header {
+    background-color: #2A3C44;
+
+}
+
+.modal-body {
+    background-color: #30444E;
+}
+
+.valueColorIns::content {
+    color: white;
+    background-color: #2A3C44;
+
+}
+
+.modal-footer {
+    background-color: #30444E;
+}
+
+
+/***************************************************** panel nouveau produits ******************************************************************/
+.form-label {
+    color: white;
+}
+
+/***************************************************** panel détail des produits **************************************************************/
+#coteGauchePanelVisuProduit {
+    float: left;
+    /* occupe la gauche de mon panel*/
+    width: 45%;
+}
+
+#coteDroitPanelVisuProduit {
+    float: right;
+    /* occupe la droite de mon panel*/
+    width: 50%;
+}
+
+#imageProduit {
+    max-width: 100%;
+}
+
+.rounded-pill {
+    color: white;
+    background-color: #2F7889;
+    border: #2F7889;
+}

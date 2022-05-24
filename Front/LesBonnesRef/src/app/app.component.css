@@ -1,0 +1,52 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+/************************************************** gestion des logos de la navBar ***************************/
+.liste-nav {
+  z-index: 1;
+  width: 100%;
+  height: 80px;
+  top: 0;
+  position: fixed;
+  background: #30444E;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/************************************************** gestion des logos de la navBar ***************************/
+.item-nav {
+  font: 17.5px;
+  /* taille des icônes */
+}
+
+i {
+  color: #96A7AF;
+  /* couleur des icônes */
+}
+
+i:hover {
+  color: #3ED598;
+}
+
+
+/************************************ bouton si utilisateur connecté**************************************/
+.dropdown-item {
+  background-color: #96A7AF;
+  /* couleur de la liste */
+}
+
+#UtilisateurConnecte {
+  color: #FF565E;
+  /* couleur du texte dans la navBar */
+}

@@ -1,0 +1,215 @@
+<!-------------------------------------------------------- choix catégorie produit ------------------------------------------------------------------------>
+<div class="margetop"></div>
+<div class="choixcategories">
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(0)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/noto_potted-plant.png" alt="">
+        <p class="pchoixcategories">Jardinage</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(1)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/flat-color-icons_home.png" alt="">
+        <p class="pchoixcategories">Domestique</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(2)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/emojione_video-game.png" alt="">
+        <p class="pchoixcategories">Jeux vidéos</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(3)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/emojione_blue-book.png" alt="">
+        <p class="pchoixcategories">Livres</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(4)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/emojione-v1_t-shirt.png" alt="">
+        <p class="pchoixcategories">Vêtements</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(5)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/noto_desktop-computer.png" alt="">
+        <p class="pchoixcategories">Electronique</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(6)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/fxemoji_guitar.png" alt="">
+        <p class="pchoixcategories">Musique</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(7)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/emojione_rugby-football.png" alt="">
+        <p class="pchoixcategories">Sport</p>
+    </button>
+</div>
+
+<!-- *** Fin Choix Catégories ** -->
+
+<div class="container p-4" id="barreAuDessusProduit">
+    <section class="row g-3">
+        <!-- ************** RECHERCHE MOT CLE AVEC TWO WAY BINDING *************** -->
+        <article class="col-6 col-md-10 col-lg-10">
+            <input class="btn-lg" id="rechercheProduit" type="search" name="search" [(ngModel)]="motCle"
+                (ngModelChange)="rechercheMotCle()" placeholder="rechercher un produit">
+        </article>
+        <!-- ******************* BOUTON VENDRE ****************** -->
+        <article class="col-6 col-md-2 col-lg-2">
+            <button type="button" class="btn-lg" id="boutonVendre" data-bs-toggle="modal" data-bs-target="#ModalForm"
+                *ngIf="!pasConnecte">
+                Vendre un produit </button>
+        </article>
+    </section>
+
+</div>
+<!-- ********** FIN BOUTON ET RECHERCHE ************* -->
+
+<div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- *************************** MODAL ACTIF **************************** -->
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="ModalFormLabel">Nouveau produit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="col" (ngSubmit)="creationProduit(nouveauProduit)" #nouveauProduit="ngForm">
+                    <!-- ************************ CONTENU MODAL ***************************** -->
+                    <div class="row">
+                        <article class="col-xs-6 col-sm-6 col-md-6">
+                            <label class="form-label">Nom</label>
+                            <input type="text" class="valueColorIns form-control" name="nomProduits" ngModel required
+                                minlength="3" maxlength="1000">
+                        </article>
+                        <article class="col-xs-6 col-sm-6 col-md-6">
+                            <label class="form-label">Catégorie</label>
+                            <input type="text" class="valueColorIns form-control" name="categorie" ngModel required
+                                minlength="3" maxlength="1000">
+                        </article>
+                        <article class="col-xs-6 col-sm-6 col-md-6">
+                            <label class="form-label">Quantité</label>
+                            <input type="number" class="valueColorIns form-control" name="quantite" ngModel required
+                                minlength="3" maxlength="1000">
+                        </article>
+                        <article class="col-xs-6 col-sm-6 col-md-6">
+                            <label class="form-label">Prix</label>
+                            <input type="number" class="valueColorIns form-control" name="prix" ngModel required
+                                minlength="3" maxlength="1000">
+                        </article>
+                    </div>
+                    <article class="mb-3">
+                        <label class="form-label">Marque</label>
+                        <input type="text" class="valueColorIns form-control" name="marque" ngModel required
+                            minlength="3" maxlength="1000">
+                    </article>
+                    <article class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="valueColorIns form-control" name="detaille" rows="3" ngModel required
+                            minlength="3" maxlength="1000"></textarea>
+                    </article>
+
+                    <article class="mb-3">
+                        <label class="form-label">Photo</label>
+                        <br>
+                        <!-- <input type="file" id="imageProduit" name="imageProduit" accept="image/png, image/jpeg" ngModel> -->
+                        <input type="url" class="valueColorIns form-control" id="imageProduit" name="imageProduit"
+                            ngModel required>
+
+                    </article>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn-sm" id="boutonVendre" data-bs-dismiss="modal">Submit</button>
+                    </div>
+                </form>
+                <!-- ******************** FIN DU CONTENU **************************** -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ********************** FIN MODAL ********************* -->
+<div class="container">
+    <!-- ************LISTE DE PRODUITS**************  -->
+    <section class="row g-3">
+        <!-- <article class="col-4 col-md-4 col-lg-4 rounded cardSize" -->
+        <article class="col-12 col-md-6 col-lg-3 p-2 rounded" *ngFor="let iter of listeDesProduits._embedded.produits">
+            <!-- col-12 col-md-6 col-lg-4 mb-3-->
+            <div class="cardBorder text-light card" [ngStyle]="{'background-color': couleurCardProduit(iter.id)}">
+                <!--création de notre card -->
+                <img style="height: 200px;" src={{iter.imageProduit}} class="cardBorder img-fluid m-3"
+                    alt="image du produits">
+                <div class="card-body marginCard mask-custom cardBorder">
+                    <h5 class="card-title">{{iter.nomProduits | slice:0:20}} (...)</h5>
+                    <p class="card-text rounded">{{iter.detaille | slice:0:80}}(...)</p>
+                    <button class="text-light float-end" id="btnDetailProduit" (click)="recuperationDesData(iter)"
+                        data-bs-toggle="modal" data-bs-target="#PopupDetaileProduit"><i
+                            class="bi bi-search fa-lg"></i></button>
+                </div>
+            </div>
+        </article>
+    </section> <!-- ************ FIN LISTE DE PRODUITS**************  -->
+    <!-- ************** MODAL DETAILLE DE PRODUIT ******************** -->
+    <div class="modal" id="PopupDetaileProduit" tabindex="-1">
+        <div class="modal-dialog modal-lg" id="detailProduit">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white">Description du produit {{produitsModifie.nomProduits}} </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <article id="coteDroitPanelVisuProduit">
+                        <img src={{produitsModifie.imageProduit}} id="imageProduit">
+                    </article>
+
+                    <section id="coteGauchePanelVisuProduit">
+                        <div class="input-group mb-3">
+                            <!-- <a class="fas fa-user"></a> -->
+                            <input name="vendeurProduit" readonly class="form-control form-control-lg valueColorIns"
+                                value={{NomPrenomVendeur}}>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input name="categorieProduit" readonly class="form-control form-control-lg valueColorIns"
+                                value={{produitsModifie.categorie}}>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input name="marqueProduit" readonly class="form-control form-control-lg valueColorIns"
+                                value={{produitsModifie.marque}}>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <textarea name="descriptionProduit" readonly class="form-control valueColorIns" rows="5"
+                                value={{produitsModifie.detaille}}></textarea>
+                        </div>
+
+                        <!-------------------------------------------------------- bouton visible si je suis connecté ------------------------------------------------------------------------>
+                        <div class="input-group mb-3" *ngIf="!pasConnecte">
+                            <input type="number" name="quantiteProduit"
+                                class="form-control form-control-lg valueColorIns" min="1"
+                                max="{{produitsModifie.quantite}}" value=1 [(ngModel)]="quantiteAchat"
+                                (ngModelChange)="calculPrixTotalParProduit()">
+                        </div>
+
+                    </section>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary valueColorIns" data-bs-dismiss="modal"
+                        *ngIf="!pasConnecte">{{prixTotalProduit}}€</button> <!-- -->
+                    <button type="button" class="btn btn-primary valueColorIns" data-bs-dismiss="modal"
+                        *ngIf="!pasConnecte" (click)="ajouterProduitAuPanier()">Ajouter au panier</button>
+
+                    <!-------------------------------------------------------- bouton visible si je suis déconnecté ------------------------------------------------------------------------>
+
+                    <button type="button" class="btn btn-secondary valueColorIns" data-bs-dismiss="modal"
+                        *ngIf="pasConnecte">{{produitsModifie.prix}}€</button> <!-- affiche le prix pour 1 -->
+                    <button type="button" class="btn btn-primary valueColorIns" data-bs-dismiss="modal"
+                        *ngIf="pasConnecte" routerLink="/pageConnexion">Me Connecter</button>
+                    <!-- envoie vers la page connection-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- *********** PAGINATION ******** -->
+<nav class="container">
+    <ul class="pagination justify-content-center">
+        <li class="page-item p-1" *ngFor="let n of nombrePage let i=index">
+            <a type="button" class="rounded-pill page-link" (click)="navigationPages(i,$event)">{{i+1}}</a>
+        </li>
+    </ul>
+</nav>
